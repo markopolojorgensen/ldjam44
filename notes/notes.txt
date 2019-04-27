@@ -1,8 +1,20 @@
 Your life is currency
 Currency: Electricity
 
+dimensions:
+  roughly 16:9
+  230x130
+  6x -> 1380x780
 
-dimensions: ?x134
+Layers
+  0
+    (physics)
+    diagetic stuff
+  -20
+    farthest bg (super dark)
+  20
+    logo intro
+
 
 Base
   You are a robot factory

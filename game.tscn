@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://game.gd" type="Script" id=1]
+[ext_resource path="res://external/ground.png" type="Texture" id=2]
+[ext_resource path="res://external/bg.png" type="Texture" id=3]
+[ext_resource path="res://logo.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 768, 30 )
+
+[node name="game" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="camera_2d" type="Camera2D" parent="."]
+position = Vector2( 690, 390 )
+limit_top = 0
+limit_bottom = 780
+
+[node name="ground" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 768, 750 )
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="ground"]
+shape = SubResource( 1 )
+
+[node name="sprite" type="Sprite" parent="ground"]
+scale = Vector2( 6, 6 )
+texture = ExtResource( 2 )
+
+[node name="farthest_bg" type="CanvasLayer" parent="."]
+editor/display_folded = true
+layer = -20
+
+[node name="bg" type="Sprite" parent="farthest_bg"]
+position = Vector2( 690, 390 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 3 )
+
+[node name="parallax_background" type="ParallaxBackground" parent="."]
+
+[node name="logo" parent="." instance=ExtResource( 4 )]
+skip = true
+
+[node name="disco_balls" type="Node2D" parent="."]
+
