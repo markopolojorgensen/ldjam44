@@ -13,7 +13,7 @@ func _ready():
 	$idle_wait_timer.connect("timeout", self, "idle_wander")
 	$idle_wander_timer.connect("timeout", self, "idle_wait")
 	
-	idle_wait()
+	call_deferred("idle_wander")
 
 func _process(delta):
 	if linear_velocity.x > 1:

@@ -1,5 +1,7 @@
 extends Node2D
 
+signal deleted(where)
+
 const delete_distance = 6 * 10
 
 var highlighted = false
@@ -12,6 +14,9 @@ func _input(event):
 		var distance_to_mouse = (get_global_mouse_position() - global_position).length()
 		if distance_to_mouse < delete_distance:
 			get_tree().set_input_as_handled()
+			
+			emit_signal("deleted", global_position.x)
+			
 			queue_free()
 
 func _process(delta):

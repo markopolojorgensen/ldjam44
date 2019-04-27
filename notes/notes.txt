@@ -4,6 +4,9 @@ Currency: Electricity
 This is a game where you fight against radioactive worms for control of
 thunder valley by using disco balls to direct robots.
 
+eventually it starts raining worms
+
+radioactive worm storm?
 
 dimensions:
   roughly 16:9
@@ -11,13 +14,32 @@ dimensions:
   6x -> 1380x780
 
 Layers
+  -20
+    farthest bg (super dark)
   0
     (physics)
     diagetic stuff
-  -20
-    farthest bg (super dark)
+      enemies: z10
+      minions: z5
+      base: z0
+    cloud parallax
+      crosshairs: z8
+      disco balls: z7
+      z levels -10 to 10
+  10
+    HUD
+  15
+    lose screen
   20
     logo intro
+
+TODO
+  parallax clouds
+  parallax lights
+  parallax mountains
+  parallax hills
+  parallax forests
+
 
 
 Base

@@ -139,6 +139,7 @@ animations = [ {
 } ]
 
 [node name="disco_ball" type="Node2D"]
+z_index = 7
 script = ExtResource( 1 )
 
 [node name="animated_sprite" type="AnimatedSprite" parent="."]
