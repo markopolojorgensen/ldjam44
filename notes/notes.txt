@@ -1,0 +1,71 @@
+Your life is currency
+Currency: Electricity
+
+
+dimensions: ?x134
+
+Base
+  You are a robot factory
+  base survives on electricity; out of electricity -> lose
+  Enemies that get to the base sap electricity
+
+Minions
+  spend life power to create minions
+  get stationed on lightning rods
+  commanded via stationing points
+  minions have their own batteries?
+  flying minions?
+
+stationing points
+  all minions are evenly divided among all stationing points
+  cost resources?
+
+Lightning rods
+  source of life / currency / electricity
+  assign minions to gain electricity when storm strikes
+  probably a lot of these
+
+Enemies
+  wave based, slowly waves get stronger and stronger
+
+How to get electricity?
+  commit minions to lightning rods via stationing points
+
+Storm
+  moves back and forth across the world
+  charges lightning rods that have minions assign
+
+Towers?
+  predetermined spots where towers can be built?
+  towers give nearby minions a defensive advantage?
+  towers have upkeep?
+  other tower types (offensive, etc)?
+  giant electricity walls?
+  impenetrable barriers?
+
+
+Competence / Mastery | Moment-to-Moment Efficacy
+  directing the building of defenses
+  preparing for the next assault
+  identifying next short-term goal (rod, battery, etc)
+Competence / Mastery | Long Term Growth
+  expansion of territory
+Competence / Mastery | Sustained Competence Feedback
+  electricity level
+  lots of minions
+Autonomy / Agency | Meaningful Choices
+  which direction to go in?
+  choose how many minions to assign to rods
+Autonomy / Agency | narrative purpose
+
+Autonomy / Agency | perceived opportunities
+  exploration element
+    abandoned factory
+    battery store
+Relatedness | "You matter to me"
+
+Relatedness | "I matter to you"
+  minions are happy to see you
+  enemies display emnity
+
+

@@ -1,0 +1,338 @@
+COLORTOOL v1.0
+SECTION PALETTE 471
+#0a0219 #200f19 #371f1a #4b2c1b #5c371b #6d421c #7c4c1d #8a561e #985f1f #a56721 #27242d #3e3d42 #515054 #626264 #727173 #807f81 #8d8d8d #99999a #a5a5a5 #0d071a #120e1c #17151f #1b1b21 #1f2023 #232526 #272a28 #2b2e2b #2e322d #3e3d30 #626247 #7f7f5a #99996c #b0b07c #c5c68b #d9da98 #eceda6 #fdffb2 #2a0730 #430f46 #581659 #6a1c6b #7b227a #8a2789 #982c97 #a531a4 #b235b0 #1d2630 #2e3f47 #3c535a #49656c #55757c #60848b #6a9298 #739fa6 #7cabb2 #190d1d #281922 #342327 #3f2c2c
+SECTION DOCUMENT 4519
+{
+ "id": "1556316831582360676",
+ "filepath": "/home/mark/fuel/data/godot/ldjams/LDJAM44/external/ldjam44.clrpal",
+ "settings": {
+  "snap_to_grid": true,
+  "grid_size": {
+   "_t": "Vector2",
+   "value": [
+    16,
+    16
+   ]
+  },
+  "draw_grid": false,
+  "zoom": -1,
+  "scroll": {
+   "_t": "Vector2",
+   "value": [
+    11.827686,
+    71.437576
+   ]
+  },
+  "old_path_root": "/home/mark/fuel/data/godot/ldjams/LDJAM44/external"
+ },
+ "objects": [
+  {
+   "_t": "ColorShard",
+   "_v": 0,
+   "id": "Clr0001",
+   "position": {
+    "_t": "Vector2",
+    "value": [
+     41,
+     217
+    ]
+   },
+   "color": {
+    "_t": "Vector3",
+    "value": [
+     0.750441,
+     0.714045,
+     0.34919
+    ]
+   },
+   "color_space": "Linear HSV"
+  },
+  {
+   "_t": "ColorShard",
+   "_v": 0,
+   "id": "Clr0002",
+   "position": {
+    "_t": "Vector2",
+    "value": [
+     -151,
+     217
+    ]
+   },
+   "color": {
+    "_t": "Vector3",
+    "value": [
+     0.106311,
+     0.521106,
+     0.826657
+    ]
+   },
+   "color_space": "Linear HSV"
+  },
+  {
+   "_t": "ColorRamp",
+   "_v": 0,
+   "id": "Ramp0003",
+   "from": "Clr0001",
+   "to": "Clr0002",
+   "steps": 8,
+   "color_space": "Linear RGB",
+   "curve_shape": 1.57,
+   "curves": [
+    -1,
+    -1,
+    -1
+   ],
+   "offsets": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "_t": "ColorShard",
+   "_v": 0,
+   "id": "Clr0006",
+   "position": {
+    "_t": "Vector2",
+    "value": [
+     -135,
+     169
+    ]
+   },
+   "color": {
+    "_t": "Vector3",
+    "value": [
+     0,
+     0,
+     0.826657
+    ]
+   },
+   "color_space": "Linear HSV"
+  },
+  {
+   "_t": "ColorRamp",
+   "_v": 0,
+   "id": "Ramp0007",
+   "from": "Clr0001",
+   "to": "Clr0006",
+   "steps": 8,
+   "color_space": "Linear RGB",
+   "curve_shape": 1.4,
+   "curves": [
+    -1,
+    -1,
+    -1
+   ],
+   "offsets": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "_t": "ColorShard",
+   "_v": 0,
+   "id": "Clr000C",
+   "position": {
+    "_t": "Vector2",
+    "value": [
+     -23,
+     73
+    ]
+   },
+   "color": {
+    "_t": "Vector3",
+    "value": [
+     0.299167,
+     0.047826,
+     0.484529
+    ]
+   },
+   "color_space": "Linear HSV"
+  },
+  {
+   "_t": "ColorRamp",
+   "_v": 0,
+   "id": "Ramp000D",
+   "from": "Clr0001",
+   "to": "Clr000C",
+   "steps": 8,
+   "color_space": "Linear RGB",
+   "curve_shape": 1.4,
+   "curves": [
+    -1,
+    -1,
+    -1
+   ],
+   "offsets": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "_t": "ColorShard",
+   "_v": 0,
+   "id": "Clr000E",
+   "position": {
+    "_t": "Vector2",
+    "value": [
+     9,
+     73
+    ]
+   },
+   "color": {
+    "_t": "Vector3",
+    "value": [
+     0.169185,
+     0.145694,
+     1
+    ]
+   },
+   "color_space": "Linear HSV"
+  },
+  {
+   "_t": "ColorRamp",
+   "_v": 0,
+   "id": "Ramp000F",
+   "from": "Clr0001",
+   "to": "Clr000E",
+   "steps": 8,
+   "color_space": "Linear RGB",
+   "curve_shape": 1.4,
+   "curves": [
+    -1,
+    -1,
+    -1
+   ],
+   "offsets": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "_t": "ColorShard",
+   "_v": 0,
+   "id": "Clr0010",
+   "position": {
+    "_t": "Vector2",
+    "value": [
+     233,
+     217
+    ]
+   },
+   "color": {
+    "_t": "Vector3",
+    "value": [
+     0.835394,
+     0.419869,
+     0.854306
+    ]
+   },
+   "color_space": "Linear HSV"
+  },
+  {
+   "_t": "ColorRamp",
+   "_v": 0,
+   "id": "Ramp0011",
+   "from": "Clr0010",
+   "to": "Clr0001",
+   "steps": 8,
+   "color_space": "Linear RGB",
+   "curve_shape": 1.4,
+   "curves": [
+    -1,
+    -1,
+    -1
+   ],
+   "offsets": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "_t": "ColorShard",
+   "_v": 0,
+   "id": "Clr0012",
+   "position": {
+    "_t": "Vector2",
+    "value": [
+     217,
+     105
+    ]
+   },
+   "color": {
+    "_t": "Vector3",
+    "value": [
+     0.520354,
+     0.14699,
+     0.854306
+    ]
+   },
+   "color_space": "Linear HSV"
+  },
+  {
+   "_t": "ColorRamp",
+   "_v": 0,
+   "id": "Ramp0013",
+   "from": "Clr0001",
+   "to": "Clr0012",
+   "steps": 8,
+   "color_space": "Linear RGB",
+   "curve_shape": 1.4,
+   "curves": [
+    -1,
+    -1,
+    -1
+   ],
+   "offsets": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "_t": "ColorShard",
+   "_v": 0,
+   "id": "Clr0016",
+   "position": {
+    "_t": "Vector2",
+    "value": [
+     105,
+     297
+    ]
+   },
+   "color": {
+    "_t": "Vector3",
+    "value": [
+     0,
+     0.15224,
+     0.537099
+    ]
+   },
+   "color_space": "Linear HSV"
+  },
+  {
+   "_t": "ColorRamp",
+   "_v": 0,
+   "id": "Ramp0017",
+   "from": "Clr0001",
+   "to": "Clr0016",
+   "steps": 3,
+   "color_space": "Linear RGB",
+   "curve_shape": 1.4,
+   "curves": [
+    -1,
+    -1,
+    -1
+   ],
+   "offsets": [
+    0,
+    0,
+    0
+   ]
+  }
+ ]
+}
