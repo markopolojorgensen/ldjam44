@@ -1,6 +1,10 @@
 Your life is currency
 Currency: Electricity
 
+This is a game where you fight against radioactive worms for control of
+thunder valley by using disco balls to direct robots.
+
+
 dimensions:
   roughly 16:9
   230x130
