@@ -7,8 +7,6 @@ const max_height = 200
 
 const clear = Color(1,1,1,0)
 
-const max_lifetime = 15
-
 func _ready():
 	# hide
 	modulate = clear
@@ -31,10 +29,11 @@ func _ready():
 	$tween.start()
 	
 	# randomize lifespan
-	$lifetime.wait_time = (randf() * max_lifetime) + 5
+	$lifetime.connect("timeout", self, "lifetime_up")
+	$lifetime.wait_time = (randf() * 40) + 40
 	$lifetime.start()
-	yield($lifetime, "timeout")
-	
+
+func lifetime_up():
 	$tween.interpolate_property(self, "modulate", modulate, clear, 2, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 	$tween.start()
 	

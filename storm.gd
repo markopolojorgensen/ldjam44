@@ -6,7 +6,7 @@ onready var cloud_holder = get_node(cloud_holder_path)
 const cloud_scene = preload("res://cloud.tscn")
 
 var full_width = 1 # overwritten by game
-var storm_period = 30
+var storm_period = 60
 var time = 0
 
 func _ready():

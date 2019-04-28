@@ -15,7 +15,7 @@ func _input(event):
 		if distance_to_mouse < delete_distance:
 			get_tree().set_input_as_handled()
 			
-			emit_signal("deleted", global_position.x)
+			emit_signal("deleted", self)
 			
 			queue_free()
 

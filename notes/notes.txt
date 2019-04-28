@@ -20,12 +20,13 @@ Layers
     (physics)
     diagetic stuff
       enemies: z10
-      minions: z5
-      base: z0
-    cloud parallax
+      cloud parallax: z-10 to z10
       crosshairs: z8
       disco balls: z7
-      z levels -10 to 10
+      minions: z5
+      base: z0
+      lightning: z-10
+
   10
     HUD
   15
@@ -34,6 +35,8 @@ Layers
     logo intro
 
 TODO
+  enemy dropship
+  minions wander while at disco
   parallax clouds
   parallax lights
   parallax mountains
@@ -46,6 +49,7 @@ Base
   You are a robot factory
   base survives on electricity; out of electricity -> lose
   Enemies that get to the base sap electricity
+    more electriticy than if they destroy a minion?
 
 Minions
   spend life power to create minions
@@ -55,6 +59,7 @@ Minions
   flying minions?
 
 stationing points
+  aka disco balls :D
   all minions are evenly divided among all stationing points
   cost resources?
 

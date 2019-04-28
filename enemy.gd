@@ -15,3 +15,6 @@ func _on_enemy_body_entered(body):
 	if body.has_method("hit_by_enemy"):
 		body.hit_by_enemy()
 		queue_free()
+
+func is_enemy():
+	return true

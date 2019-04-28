@@ -102,7 +102,7 @@ height = 12.0
 [node name="minion" type="RigidBody2D"]
 z_index = 5
 collision_layer = 2
-collision_mask = 5
+collision_mask = 21
 mode = 2
 gravity_scale = 5.0
 linear_damp = 5.0
@@ -124,3 +124,8 @@ one_shot = true
 [node name="idle_wander_timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="think_timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="think_timer" to="." method="think"]
