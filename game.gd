@@ -1,5 +1,9 @@
 extends Node2D
 
+const spawn_interval_min = 0.5
+const spawn_interval_max = 5.5
+const game_time = 360.0 # six minutes
+
 class BallProximitySorter:
 	# point is not a vector, just an x value
 	var point = 0
@@ -8,16 +12,23 @@ class BallProximitySorter:
 
 var disco_balls = []
 
+var total_time_elapsed = 0
+var calibrated = true
+
 const disco_ball_scene = preload("res://disco_ball.tscn")
 const minion_scene = preload("res://minion.tscn")
 const enemy_scene = preload("res://enemy.tscn")
 const lightning_strike_scene = preload("res://lightning_strike.tscn")
 const lose_hud_scene = preload("res://lose_hud.tscn")
 const win_hud_scene = preload("res://win_hud.tscn")
+const wall_scene = preload("res://wall.tscn")
+const portal_scene = preload("res://portal.tscn")
 
 var health = 20
 var dead = false
 var won = false
+
+var enemy_spawn_left = true
 
 func _ready():
 	$base.connect("activated", self, "spawn_minion")
@@ -26,7 +37,10 @@ func _ready():
 	$storm.full_width = $ground.get_children().size() * (256 * 6)
 	
 	update_health(0)
-	spawn_enemy()
+	
+	for rod in $rods.get_children():
+		rod.connect("strike_captured", self, "strike_captured")
+		rod.connect("taken_by_worms", self, "open_portal")
 
 func _unhandled_input(event):
 	if event.is_action_pressed("instaquit"):
@@ -39,9 +53,32 @@ func _unhandled_input(event):
 		disco_balls.append(inst)
 		inst.global_position.x = get_global_mouse_position().x
 		inst.global_position.y = clamp(get_global_mouse_position().y, 200, 500)
+	elif event.is_action_pressed("spawn_wall"):
+		get_tree().set_input_as_handled()
+		var inst = wall_scene.instance()
+		inst.connect("drain", self, "wall_drain")
+		$walls.add_child(inst)
+		inst.update_x(get_global_mouse_position().x)
+		inst.global_position.y = 720
 
 func _process(delta):
-	if dead:
+	total_time_elapsed += delta
+	
+	# $HUD/debug.text = "time elapsed: %0.0f\nspawn interval: %0.1f" % [total_time_elapsed, $enemy_spawn_timer.wait_time]
+	var game_percent = total_time_elapsed / game_time
+	$HUD/margin_container/health_bar/texture_rect/difficulty_gauge.value = game_percent
+	
+	if fmod(total_time_elapsed, 10) < 1 and not calibrated:
+		# calibrate enemy spawn interval
+		var weight = total_time_elapsed / game_time
+		$enemy_spawn_timer.wait_time = lerp(spawn_interval_max, spawn_interval_min, clamp(weight, 0, 1))
+		calibrated = true
+	elif fmod(total_time_elapsed, 10) > 9 and calibrated:
+		# reset for next calibration round
+		calibrated = false
+		
+	
+	if health < 10:
 		# shake health bar
 		$HUD/margin_container/health_bar.rect_position.x = randf() * 6
 		$HUD/margin_container/health_bar.rect_position.y = randf() * 6
@@ -56,12 +93,22 @@ func spawn_minion():
 func spawn_enemy():
 	var inst = enemy_scene.instance()
 	$enemies.add_child(inst)
-	inst.global_position = $enemy_spawn_point_left.global_position
-	$enemy_spawn_point_left/spawn_animation.show()
-	$enemy_spawn_point_left/spawn_animation.play()
-	inst.position.x += 120
+	
+	inst.destination = $base.global_position.x
+	
+	if enemy_spawn_left:
+		inst.global_position = $enemy_spawn_point_left.global_position
+	else:
+		inst.global_position = $enemy_spawn_point_right.global_position
+	
+	enemy_spawn_left = not enemy_spawn_left
+	
 
 func update_health(value):
+	if dead or won:
+		# ignore
+		return
+	
 	health += value
 	
 	if health <= 0 and not dead and not won:
@@ -76,6 +123,8 @@ func update_health(value):
 		var win_hud = win_hud_scene.instance()
 		add_child(win_hud)
 		win_hud.connect("try_again", self, "try_again")
+		$win_timer.start()
+		$base.ignore_clicks()
 	
 	$HUD/margin_container/health_bar.value = health
 
@@ -126,7 +175,6 @@ func allocate_minions():
 			var minion = assignments[ball].pop_back()
 			# print("  %s minions left after removing one" % [assignments[ball].size()])
 			minion.free_ball()
-			break
 
 func disco_stopped(ball):
 	# print("stopping disco at " + str(ball.global_position.x))
@@ -138,23 +186,25 @@ func disco_stopped(ball):
 func try_again():
 	get_tree().reload_current_scene()
 
-func _on_rod_detector_body_entered(body):
-	# lightning strike
-	var inst = lightning_strike_scene.instance()
-	add_child(inst)
-	if not body.has_method("get_strike_position"):
-		print("body without strike position? " + str(body))
-		return
+func strike_captured():
+	update_health(3)
+
+func wall_drain():
+	update_health(-1)
+
+func open_portal(location):
+	var inst = portal_scene.instance()
+	var weight = clamp(total_time_elapsed / game_time, 0, 1)
+	inst.number_of_worms = floor(lerp(2, 10, weight))
+	inst.connect("spawn_worm", self, "portal_spawn_enemy")
+	$portals.add_child(inst)
+	inst.global_position.x = location
+
+func portal_spawn_enemy(location):
+	var inst = enemy_scene.instance()
+	$enemies.add_child(inst)
 	
-	inst.global_position = body.get_strike_position()
+	inst.destination = $base.global_position.x
 	
-	if body.is_manned():
-		update_health(3)
-
-func _on_rod_detector_area_entered(area):
-	_on_rod_detector_body_entered(area)
-
-
-
-
+	inst.global_position.x = location
 

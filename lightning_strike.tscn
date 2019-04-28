@@ -62,16 +62,9 @@ modulate = Color( 1, 1, 1, 0 )
 scale = Vector2( 6, 6 )
 z_index = -10
 frames = SubResource( 1 )
-frame = 15
-playing = true
 offset = Vector2( 13, -17 )
 script = ExtResource( 31 )
-
-[node name="timer" type="Timer" parent="."]
-one_shot = true
-autostart = true
 
 [node name="animation_player" type="AnimationPlayer" parent="."]
 anims/flash = SubResource( 2 )
 
-[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

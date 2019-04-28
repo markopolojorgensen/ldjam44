@@ -84,6 +84,10 @@ spawn_minion={
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
+spawn_wall={
+"deadzone": 0.5,
+"events": [  ]
+}
 
 [layer_names]
 
@@ -93,6 +97,7 @@ spawn_minion={
 2d_physics/layer_3="enemies"
 2d_physics/layer_4="base"
 2d_physics/layer_5="lightning_rods"
+2d_physics/layer_6="walls"
 
 [node]
 

@@ -20,10 +20,14 @@ func _ready():
 	call_deferred("idle_wander")
 
 func think():
-	if assigned_ball and abs(assigned_ball.global_position.x - global_position.x) > (42*6):
+	if assigned_ball and abs(assigned_ball.global_position.x - global_position.x) > (36*6):
 		# too far away
 		stop_idling()
 		destination = assigned_ball.global_position.x + rand_range(-16*6, 16*6)
+	elif $aggro.get_overlapping_areas().size() > 0:
+		# enemy, let's get him!
+		stop_idling()
+		destination = $aggro.get_overlapping_areas()[0].global_position.x
 	elif not is_idling():
 		idle_wait()
 
@@ -81,3 +85,6 @@ func free_ball():
 
 func is_minion():
 	return true
+
+func hit_by_enemy():
+	queue_free()

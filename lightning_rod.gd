@@ -1,12 +1,19 @@
 extends Area2D
 
+signal strike_captured
+signal taken_by_worms(location)
+
 var manned = false
 
 func _ready():
 	$minion.hide()
+	$initial_delay.wait_time = randf() * 15
+	$initial_delay.start()
 
-func get_strike_position():
-	return $strike_point.global_position
+func do_strike():
+	$lightning_strike.go()
+	if manned:
+		emit_signal("strike_captured")
 
 func is_manned():
 	return manned
@@ -21,11 +28,17 @@ func remove_minion():
 
 func body_entered(body):
 	if body.has_method("is_minion") and body.is_minion() and not manned:
-		add_minion()
-		body.queue_free()
+		if $enemy_detector.get_overlapping_areas().size() == 0:
+			add_minion()
+			body.queue_free()
 	elif body.has_method("is_enemy") and body.is_enemy() and manned:
 		remove_minion()
 		body.queue_free()
+		emit_signal("taken_by_worms", global_position.x + rand_range(-64 * 6, 64 * 6))
+
+func start_strikes():
+	do_strike()
+	$strike_interval.start()
 
 
 

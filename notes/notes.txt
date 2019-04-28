@@ -19,11 +19,14 @@ Layers
   0
     (physics)
     diagetic stuff
+      cave fore: z20
+      walls: z15
       enemies: z10
       cloud parallax: z-10 to z10
       crosshairs: z8
       disco balls: z7
       minions: z5
+      cave back: z1
       base: z0
       lightning: z-10
 
@@ -35,21 +38,21 @@ Layers
     logo intro
 
 TODO
-  enemy spawning schedule
-    from both sides
-  ditch storm center idea, it's dumb
-    lightning should strike all rods every so often
-
-  pop farthest first when de-assigning minions
-
-  enemy dropship?
+  tutorial
   parallax clouds
-  parallax lights
+  parallax layer lights
   parallax mountains
   parallax hills
   parallax forests
   wasted lightning strike vs captured strike particle effects
+  enemy dropship?
 DONE
+  enemy spawning schedule
+    from both sides
+  enemies retaking towers cause portals
+  ditch storm center
+  lightning should strike all rods every so often
+  pop farthest first when de-assigning minions
   minions wander while at disco
 
 
@@ -122,8 +125,24 @@ Relatedness | "I matter to you"
 
 
 COSTS
+  ways to pay for worms:
+    walls   (unlimited worms, 50% trigger rate): W
+    minions (not good or bad): M
+    tower   (bad): T
+      open portal to create bonus worms
+    base    (really bad): B
+
+    when are walls efficient?
+      6 worms is probably the break even point
+      W = -3w
+    M = -1w
+    T = -1M +3w
+
   minion: 1
-  worm makes it to base: 2
+  worm makes it to base: 4
+  each wall has a 50% chance to filter out worms that go through it
+    walls last 20 seconds, eat 10 energy
+    10 worms come to it, 5 worms eaten for 10 energy :\
   worms and minions cancel out 1:1
   strike grants 3
     strike is worth 1.5 worms-to-base, or 3 worms-to-minions
@@ -138,6 +157,8 @@ COSTS
         game should last ~five minutes
         100 strikes
           over 300 seconds, one (harvested) strike every three seconds average
+          1 strike per rod every 18 seconds:
+            3 rods -> 1 strike every 6 seconds, 1 unit / 2 seconds
           11 rods on the map, at the end you'll probably have close to all of them
             10 rods << 3 seconds / harvested strike
               1 second / harvested strike
@@ -154,6 +175,9 @@ COSTS
 Competence / Mastery | Moment-to-Moment Efficacy
   directing minions efficiently
     choosing when to advance
+    position has to matter somehow
+      maybe minions are not an efficent trade for worms unless you run the worms through a filter first
+        wall that kills every other worm
   constantly scanning back and forth to see incoming threats / opportunities
   maybe there are power checkpoints where big swarms spawn
 Competence / Mastery | Long Term Growth

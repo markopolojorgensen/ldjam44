@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://minion.gd" type="Script" id=1]
 [ext_resource path="res://external/minion_frames/idle_00.png" type="Texture" id=2]
@@ -99,6 +99,9 @@ animations = [ {
 radius = 18.0
 height = 12.0
 
+[sub_resource type="CircleShape2D" id=3]
+radius = 384.0
+
 [node name="minion" type="RigidBody2D"]
 z_index = 5
 collision_layer = 2
@@ -125,7 +128,14 @@ one_shot = true
 one_shot = true
 
 [node name="think_timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 autostart = true
+
+[node name="aggro" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="aggro"]
+shape = SubResource( 3 )
 
 [connection signal="timeout" from="think_timer" to="." method="think"]
