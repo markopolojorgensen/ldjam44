@@ -1,4 +1,4 @@
-Your life is currency
+  Your life is currency
 Currency: Electricity
 
 This is a game where you fight against radioactive worms for control of
@@ -35,13 +35,22 @@ Layers
     logo intro
 
 TODO
-  enemy dropship
-  minions wander while at disco
+  enemy spawning schedule
+    from both sides
+  ditch storm center idea, it's dumb
+    lightning should strike all rods every so often
+
+  pop farthest first when de-assigning minions
+
+  enemy dropship?
   parallax clouds
   parallax lights
   parallax mountains
   parallax hills
   parallax forests
+  wasted lightning strike vs captured strike particle effects
+DONE
+  minions wander while at disco
 
 
 
@@ -100,7 +109,7 @@ Autonomy / Agency | Meaningful Choices
   which direction to go in?
   choose how many minions to assign to rods
 Autonomy / Agency | narrative purpose
-
+  survive the storm
 Autonomy / Agency | perceived opportunities
   exploration element
     abandoned factory
@@ -110,5 +119,60 @@ Relatedness | "You matter to me"
 Relatedness | "I matter to you"
   minions are happy to see you
   enemies display emnity
+
+
+COSTS
+  minion: 1
+  worm makes it to base: 2
+  worms and minions cancel out 1:1
+  strike grants 3
+    strike is worth 1.5 worms-to-base, or 3 worms-to-minions
+    makes sense to ramp up worms per strike as difficulty increases over time
+    especially since you can't harvest all strikes immediately
+    maybe have worm spawns scale with total electricity harvested?
+      this captures resources in reserve as well as sunk into minions
+      also doesn't punish for staying small early
+      100 electricity is win
+      let's aim for 300 electricity total
+        100 power in the bank, 200 minions
+        game should last ~five minutes
+        100 strikes
+          over 300 seconds, one (harvested) strike every three seconds average
+          11 rods on the map, at the end you'll probably have close to all of them
+            10 rods << 3 seconds / harvested strike
+              1 second / harvested strike
+                10 rods -> 1 second / strike
+                  1 strike / 10 rod-seconds
+          at the beginning, probably quite few
+            3 rods >> 3 seconds / harvested strike
+              3 rods -> 3 seconds / strike
+        ~175 worms
+          over 300 seconds is 0.58 worms / second
+            1.7 seconds between worms average
+
+
+Competence / Mastery | Moment-to-Moment Efficacy
+  directing minions efficiently
+    choosing when to advance
+  constantly scanning back and forth to see incoming threats / opportunities
+  maybe there are power checkpoints where big swarms spawn
+Competence / Mastery | Long Term Growth
+  expansion of territory
+    need something to deter expansion
+    losing a tower should be very costly
+      permanently destroyed?
+      spawns huge swarm?
+Competence / Mastery | Sustained Competence Feedback
+  electricity level
+  lots of minions
+    why is lots of minions good?
+Autonomy / Agency | Meaningful Choices
+  where to station minions
+Autonomy / Agency | narrative purpose
+  survive the storm
+Autonomy / Agency | perceived opportunities
+Relatedness | "You matter to me"
+Relatedness | "I matter to you"
+
 
 

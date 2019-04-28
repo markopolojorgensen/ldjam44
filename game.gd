@@ -71,7 +71,7 @@ func update_health(value):
 		var lose_hud = lose_hud_scene.instance()
 		add_child(lose_hud)
 		lose_hud.connect("try_again", self, "try_again")
-	elif health > 100 and not dead and not won:
+	elif health >= 100 and not dead and not won:
 		won = true
 		var win_hud = win_hud_scene.instance()
 		add_child(win_hud)
@@ -119,7 +119,11 @@ func allocate_minions():
 	
 		while assignments[ball].size() > round_ratio:
 			# print("%s > %s, remove minions" % [assignments[ball].size(), round_ratio])
-			var minion = assignments[ball].pop_front()
+			var sorter = BallProximitySorter.new()
+			sorter.point = ball.global_position.x
+			assignments[ball].sort_custom(sorter, "proximity_compare")
+			# pop farthest first
+			var minion = assignments[ball].pop_back()
 			# print("  %s minions left after removing one" % [assignments[ball].size()])
 			minion.free_ball()
 			break

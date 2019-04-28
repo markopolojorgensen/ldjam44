@@ -39,5 +39,9 @@ scale = Vector2( 6, 6 )
 frames = SubResource( 2 )
 frame = 4
 
+[node name="idle_wait_timer" type="Timer" parent="."]
+
+[node name="idle_wander_timer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_enemy_body_entered"]
 [connection signal="frame_changed" from="animated_sprite" to="." method="_on_animated_sprite_frame_changed"]
