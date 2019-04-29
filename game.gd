@@ -4,7 +4,7 @@ const spawn_interval_min = 0.5
 const spawn_interval_max = 5.5
 const game_time = 360.0 # six minutes
 
-const cloud_goal = 300 # number of clouds to create
+const cloud_goal = 500 # number of clouds to create
 
 class BallProximitySorter:
 	# point is not a vector, just an x value

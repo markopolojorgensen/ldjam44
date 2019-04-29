@@ -421,6 +421,7 @@ margin_bottom = 416.0
 text = "This is your base. Protect it!"
 
 [node name="page_10" type="CanvasLayer" parent="."]
+editor/display_folded = true
 layer = 19
 script = ExtResource( 2 )
 

@@ -100,7 +100,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 768, 30 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 48, 48 )
 
 [sub_resource type="SpriteFrames" id=3]
@@ -111,7 +111,7 @@ animations = [ {
 "speed": 30.0
 } ]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 82 ) ],
 "loop": false,
@@ -718,7 +718,6 @@ position = Vector2( 9180, 720 )
 start_idle = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
-editor/display_folded = true
 layer = 10
 
 [node name="margin_container" type="MarginContainer" parent="HUD"]
@@ -768,28 +767,28 @@ editor/display_folded = true
 position = Vector2( -48, 768 )
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="external_walls/spawn_floor"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="spawn_floor2" type="StaticBody2D" parent="external_walls"]
 editor/display_folded = true
 position = Vector2( 9264, 768 )
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="external_walls/spawn_floor2"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="spawn_wall" type="StaticBody2D" parent="external_walls"]
 editor/display_folded = true
 position = Vector2( -144, 672 )
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="external_walls/spawn_wall"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="spawn_wall2" type="StaticBody2D" parent="external_walls"]
 editor/display_folded = true
 position = Vector2( 9360, 672 )
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="external_walls/spawn_wall2"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="enemy_spawn_point_left" type="Position2D" parent="."]
 editor/display_folded = true
@@ -842,7 +841,7 @@ frames = SubResource( 3 )
 [node name="animated_sprite" type="AnimatedSprite" parent="base"]
 position = Vector2( 0, -108 )
 scale = Vector2( 6, 6 )
-frames = SubResource( 2 )
+frames = SubResource( 4 )
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="base"]
 position = Vector2( -12, 0 )
