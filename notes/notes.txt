@@ -4,7 +4,38 @@ Currency: Electricity
 This is a game where you fight against radioactive worms for control of
 thunder valley by using disco balls to direct robots.
 
-eventually it starts raining worms
+
+This is your base. Protect it!
+  (base)
+
+This is your electricity meter. Fill it to win.
+  (health bar)
+
+This is a robot. Create robots by clicking on your base.
+  (robot)
+
+This is a beacon. Robots flock to beacons. Create beacons by clicking on the sky.
+  (beacon) (robots)
+
+This is a lightning rod. Station a robot here to capture electricity!
+  (lightning rod) (robots)
+
+This is a worm. They are bad and radioactive.
+  (worm)
+
+If a worm reaches a lightning rod with a robot in it, it creates a wormhole!
+  (yikes) (worms)
+
+Things get harder the longer you survive.
+  (difficulty bar)
+
+Drive back the worms! Fill your electricity meter!
+  (worms) (robots) (electricity)
+
+
+
+
+eventually it starts raining worms?
 
 radioactive worm storm?
 
@@ -16,6 +47,8 @@ dimensions:
 Layers
   -20
     farthest bg (super dark)
+  -10
+    mountains
   0
     (physics)
     diagetic stuff
@@ -39,14 +72,15 @@ Layers
 
 TODO
   tutorial
-  parallax clouds
-  parallax layer lights
-  parallax mountains
   parallax hills
   parallax forests
   wasted lightning strike vs captured strike particle effects
+    lightning linger pixel fx
   enemy dropship?
 DONE
+  parallax mountains
+  parallax layer lights
+  parallax clouds
   enemy spawning schedule
     from both sides
   enemies retaking towers cause portals

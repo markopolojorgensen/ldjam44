@@ -1,7 +1,7 @@
 extends Node2D
 
 var velocity
-const max_velocity = 100
+const max_velocity = 50
 
 const max_height = 200
 
@@ -24,7 +24,7 @@ func _ready():
 	position.y += randf() * max_height
 	
 	# fade in
-	var max_modulate = Color(1,1,1, (randf() + 1.0) / 2.0)
+	var max_modulate = Color(1,1,1, (randf() / 2.0) + 0.1) # 0.1 - 0.6
 	$tween.interpolate_property(self, "modulate", clear, max_modulate, 2, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 	$tween.start()
 	

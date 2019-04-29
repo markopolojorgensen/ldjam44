@@ -26,11 +26,9 @@ func _process(delta):
 	if distance_to_mouse < highlight_distance and not highlighted and not ignore_clicks:
 		highlighted = true
 		$outline.show()
-		$label.show()
 	elif distance_to_mouse > highlight_distance:
 		highlighted = false
 		$outline.hide()
-		$label.hide()
 
 func hit_by_enemy():
 	emit_signal("hit_by_enemy")

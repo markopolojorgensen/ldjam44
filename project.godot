@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="LDJAM44"
+config/name="Radioactive Worm Storm | LDJAM 44 | markopolodev"
 run/main_scene="res://game.tscn"
 config/icon="res://icon.png"
 

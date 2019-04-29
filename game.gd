@@ -4,6 +4,8 @@ const spawn_interval_min = 0.5
 const spawn_interval_max = 5.5
 const game_time = 360.0 # six minutes
 
+const cloud_goal = 300 # number of clouds to create
+
 class BallProximitySorter:
 	# point is not a vector, just an x value
 	var point = 0
@@ -12,7 +14,7 @@ class BallProximitySorter:
 
 var disco_balls = []
 
-var total_time_elapsed = 0
+var total_time_elapsed = 0.0
 var calibrated = true
 
 const disco_ball_scene = preload("res://disco_ball.tscn")
@@ -23,6 +25,7 @@ const lose_hud_scene = preload("res://lose_hud.tscn")
 const win_hud_scene = preload("res://win_hud.tscn")
 const wall_scene = preload("res://wall.tscn")
 const portal_scene = preload("res://portal.tscn")
+const cloud_scene = preload("res://cloud.tscn")
 
 var health = 20
 var dead = false
@@ -30,17 +33,24 @@ var won = false
 
 var enemy_spawn_left = true
 
+var swapped_to_b = false
+var swapped_to_c = false
+
+
 func _ready():
 	$base.connect("activated", self, "spawn_minion")
 	$base.connect("hit_by_enemy", self, "update_health", [-2])
-	
-	$storm.full_width = $ground.get_children().size() * (256 * 6)
 	
 	update_health(0)
 	
 	for rod in $rods.get_children():
 		rod.connect("strike_captured", self, "strike_captured")
 		rod.connect("taken_by_worms", self, "open_portal")
+	
+	cloud_check()
+	
+	$tutorial.show()
+	get_tree().paused = true
 
 func _unhandled_input(event):
 	if event.is_action_pressed("instaquit"):
@@ -67,6 +77,18 @@ func _process(delta):
 	# $HUD/debug.text = "time elapsed: %0.0f\nspawn interval: %0.1f" % [total_time_elapsed, $enemy_spawn_timer.wait_time]
 	var game_percent = total_time_elapsed / game_time
 	$HUD/margin_container/health_bar/texture_rect/difficulty_gauge.value = game_percent
+	
+	if game_percent > 0.66 and $music_b.playing and not swapped_to_c:
+		# play full music
+		$music_c.play($music_b.get_playback_position())
+		$music_b.stop()
+		swapped_to_c = true
+	elif game_percent > 0.33 and $music_a.playing and not swapped_to_b:
+		# play middle music
+		$music_b.play($music_a.get_playback_position())
+		$music_a.stop()
+		swapped_to_b = true
+	
 	
 	if fmod(total_time_elapsed, 10) < 1 and not calibrated:
 		# calibrate enemy spawn interval
@@ -194,8 +216,8 @@ func wall_drain():
 
 func open_portal(location):
 	var inst = portal_scene.instance()
-	var weight = clamp(total_time_elapsed / game_time, 0, 1)
-	inst.number_of_worms = floor(lerp(2, 10, weight))
+	var weight = clamp(total_time_elapsed / game_time, 0.0, 1.0)
+	inst.number_of_worms = floor(lerp(1, 10, weight))
 	inst.connect("spawn_worm", self, "portal_spawn_enemy")
 	$portals.add_child(inst)
 	inst.global_position.x = location
@@ -207,4 +229,21 @@ func portal_spawn_enemy(location):
 	inst.destination = $base.global_position.x
 	
 	inst.global_position.x = location
+
+func spawn_cloud():
+	var inst = cloud_scene.instance()
+	var parent = $cloud_layers.get_child(randi() % $cloud_layers.get_child_count())
+	parent.add_child(inst)
+	
+	inst.global_position.x = $ground.get_child_count() * (256 * 6) * randf()
+
+func cloud_check():
+	var cloud_total = 0
+	for layer in $cloud_layers.get_children():
+		cloud_total += layer.get_child_count()
+	
+	while cloud_total < cloud_goal:
+		spawn_cloud()
+		cloud_total += 1
+
 

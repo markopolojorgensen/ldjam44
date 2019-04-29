@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/strike2.wav-9f9eb0e2e8482cbe968fc15e89b21e08.sample"
+
+[deps]
+
+source_file="res://external/strike2.wav"
+dest_files=[ "res://.import/strike2.wav-9f9eb0e2e8482cbe968fc15e89b21e08.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

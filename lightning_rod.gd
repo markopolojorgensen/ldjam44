@@ -14,6 +14,11 @@ func do_strike():
 	$lightning_strike.go()
 	if manned:
 		emit_signal("strike_captured")
+		$strike_audio2.stop()
+		$strike_audio2.play()
+	else:
+		$strike_audio.stop()
+		$strike_audio.play()
 
 func is_manned():
 	return manned

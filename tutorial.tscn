@@ -1,0 +1,467 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://tutorial.gd" type="Script" id=1]
+[ext_resource path="res://tutorial_page.gd" type="Script" id=2]
+[ext_resource path="res://styles/panel.tres" type="StyleBox" id=3]
+[ext_resource path="res://external/base_frames/doors_00.png" type="Texture" id=4]
+[ext_resource path="res://external/minion_frames/move_13.png" type="Texture" id=5]
+[ext_resource path="res://external/enemy_frames/enemy_00.png" type="Texture" id=6]
+[ext_resource path="res://external/enemy_frames/enemy_07.png" type="Texture" id=7]
+[ext_resource path="res://external/health_bar_under7.png" type="Texture" id=8]
+[ext_resource path="res://external/health_bar_over3.png" type="Texture" id=9]
+[ext_resource path="res://external/health_bar_filler5.png" type="Texture" id=10]
+[ext_resource path="res://styles/button_press.tres" type="StyleBox" id=11]
+[ext_resource path="res://styles/button_hover.tres" type="StyleBox" id=12]
+[ext_resource path="res://styles/button_fake_focus.tres" type="StyleBox" id=13]
+[ext_resource path="res://styles/button_normal.tres" type="StyleBox" id=14]
+[ext_resource path="res://external/difficulty_gauge_underlay.png" type="Texture" id=15]
+[ext_resource path="res://external/difficulty_gauge_actual_gauge_0.png" type="Texture" id=16]
+[ext_resource path="res://tutorial_difficulty_gauge.gd" type="Script" id=17]
+[ext_resource path="res://external/lightning_rod.png" type="Texture" id=18]
+[ext_resource path="res://external/minion_frames/move_15.png" type="Texture" id=19]
+[ext_resource path="res://external/portal_frames/portal_02.png" type="Texture" id=20]
+[ext_resource path="res://external/enemy_frames/enemy_02.png" type="Texture" id=21]
+[ext_resource path="res://external/minion_frames/idle_01.png" type="Texture" id=22]
+[ext_resource path="res://external/disco_frames/disco_0.png" type="Texture" id=23]
+[ext_resource path="res://external/minion_frames/move_09.png" type="Texture" id=24]
+[ext_resource path="res://external/minion_frames/idle_00.png" type="Texture" id=25]
+[ext_resource path="res://external/health_bar_1.png" type="Texture" id=26]
+[ext_resource path="res://external/arrow.png" type="Texture" id=27]
+
+[node name="tutorial" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="page_9" type="CanvasLayer" parent="."]
+editor/display_folded = true
+layer = 19
+script = ExtResource( 2 )
+
+[node name="panel_container" type="PanelContainer" parent="page_9"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="sprite" type="Sprite" parent="page_9"]
+position = Vector2( 444, 462 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 4 )
+
+[node name="sprite2" type="Sprite" parent="page_9"]
+position = Vector2( 606, 546 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 5 )
+
+[node name="sprite3" type="Sprite" parent="page_9"]
+position = Vector2( 840, 552 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 5 )
+flip_h = true
+
+[node name="sprite4" type="Sprite" parent="page_9"]
+position = Vector2( 234, 546 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 5 )
+flip_h = true
+
+[node name="sprite5" type="Sprite" parent="page_9"]
+position = Vector2( 690, 576 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="sprite6" type="Sprite" parent="page_9"]
+position = Vector2( 66, 576 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 7 )
+flip_h = true
+
+[node name="sprite9" type="Sprite" parent="page_9"]
+position = Vector2( -132, 348 )
+texture = ExtResource( 8 )
+
+[node name="sprite7" type="Sprite" parent="page_9"]
+position = Vector2( -132, 348 )
+texture = ExtResource( 9 )
+
+[node name="sprite8" type="Sprite" parent="page_9"]
+position = Vector2( -216, 348 )
+texture = ExtResource( 10 )
+
+[node name="next" type="Button" parent="page_9"]
+margin_left = 1020.0
+margin_top = 624.0
+margin_right = 1320.0
+margin_bottom = 722.0
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 12 )
+custom_styles/focus = ExtResource( 13 )
+custom_styles/normal = ExtResource( 14 )
+text = "Play!"
+
+[node name="label" type="Label" parent="page_9"]
+margin_left = 1020.0
+margin_top = 582.0
+margin_right = 1333.0
+margin_bottom = 596.0
+text = "Drive back the worms! Fill your electricity meter!"
+
+[node name="page_8" type="CanvasLayer" parent="."]
+editor/display_folded = true
+layer = 19
+script = ExtResource( 2 )
+
+[node name="panel_container" type="PanelContainer" parent="page_8"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="sprite" type="Sprite" parent="page_8"]
+position = Vector2( 288, 108 )
+texture = ExtResource( 15 )
+
+[node name="next" type="Button" parent="page_8"]
+margin_left = 1020.0
+margin_top = 624.0
+margin_right = 1320.0
+margin_bottom = 722.0
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 12 )
+custom_styles/focus = ExtResource( 13 )
+custom_styles/normal = ExtResource( 14 )
+text = "Next"
+
+[node name="label" type="Label" parent="page_8"]
+margin_left = 168.0
+margin_top = 132.0
+margin_right = 428.0
+margin_bottom = 146.0
+text = "Things get harder the longer you survive."
+
+[node name="texture_progress" type="TextureProgress" parent="page_8"]
+margin_left = 192.0
+margin_top = 93.0
+margin_right = 384.0
+margin_bottom = 133.0
+value = 50.0
+texture_progress = ExtResource( 16 )
+script = ExtResource( 17 )
+
+[node name="page_7" type="CanvasLayer" parent="."]
+editor/display_folded = true
+layer = 19
+script = ExtResource( 2 )
+
+[node name="panel_container" type="PanelContainer" parent="page_7"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="sprite" type="Sprite" parent="page_7"]
+position = Vector2( 417, 324 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 18 )
+
+[node name="sprite2" type="Sprite" parent="page_7"]
+position = Vector2( 417, 294 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 19 )
+
+[node name="sprite3" type="Sprite" parent="page_7"]
+position = Vector2( 333, 450 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 7 )
+
+[node name="sprite4" type="Sprite" parent="page_7"]
+position = Vector2( 897, 438 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 20 )
+
+[node name="next" type="Button" parent="page_7"]
+margin_left = 1020.0
+margin_top = 624.0
+margin_right = 1320.0
+margin_bottom = 722.0
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 12 )
+custom_styles/focus = ExtResource( 13 )
+custom_styles/normal = ExtResource( 14 )
+text = "Next"
+
+[node name="label" type="Label" parent="page_7"]
+margin_left = 465.0
+margin_top = 396.0
+margin_right = 934.0
+margin_bottom = 427.0
+text = "If a worm reaches a lightning rod with a robot in it, it creates a wormhole!"
+
+[node name="page_6" type="CanvasLayer" parent="."]
+editor/display_folded = true
+layer = 19
+script = ExtResource( 2 )
+
+[node name="panel_container" type="PanelContainer" parent="page_6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="sprite" type="Sprite" parent="page_6"]
+position = Vector2( 636, 330 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 21 )
+
+[node name="next" type="Button" parent="page_6"]
+margin_left = 1020.0
+margin_top = 624.0
+margin_right = 1320.0
+margin_bottom = 722.0
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 12 )
+custom_styles/focus = ExtResource( 13 )
+custom_styles/normal = ExtResource( 14 )
+text = "Next"
+
+[node name="label" type="Label" parent="page_6"]
+margin_left = 558.0
+margin_top = 306.0
+margin_right = 844.0
+margin_bottom = 320.0
+text = "This is a worm. They are bad and radioactive."
+
+[node name="page_5" type="CanvasLayer" parent="."]
+editor/display_folded = true
+layer = 19
+script = ExtResource( 2 )
+
+[node name="panel_container" type="PanelContainer" parent="page_5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="sprite" type="Sprite" parent="page_5"]
+position = Vector2( 174, 462 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 18 )
+
+[node name="next" type="Button" parent="page_5"]
+margin_left = 1020.0
+margin_top = 624.0
+margin_right = 1320.0
+margin_bottom = 722.0
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 12 )
+custom_styles/focus = ExtResource( 13 )
+custom_styles/normal = ExtResource( 14 )
+text = "Next"
+
+[node name="label" type="Label" parent="page_5"]
+margin_left = 72.0
+margin_top = 636.0
+margin_right = 483.0
+margin_bottom = 667.0
+text = "This is a lightning rod. Station a robot here to capture electricity!
+"
+
+[node name="sprite4" type="Sprite" parent="page_5"]
+position = Vector2( 294, 558 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 22 )
+flip_h = true
+
+[node name="page_4" type="CanvasLayer" parent="."]
+editor/display_folded = true
+layer = 19
+script = ExtResource( 2 )
+
+[node name="panel_container" type="PanelContainer" parent="page_4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="sprite" type="Sprite" parent="page_4"]
+position = Vector2( 354, 276 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 23 )
+
+[node name="sprite2" type="Sprite" parent="page_4"]
+position = Vector2( 552, 282 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 22 )
+flip_h = true
+
+[node name="sprite3" type="Sprite" parent="page_4"]
+position = Vector2( 504, 234 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 24 )
+flip_h = true
+
+[node name="next" type="Button" parent="page_4"]
+margin_left = 1020.0
+margin_top = 624.0
+margin_right = 1320.0
+margin_bottom = 722.0
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 12 )
+custom_styles/focus = ExtResource( 13 )
+custom_styles/normal = ExtResource( 14 )
+text = "Next"
+
+[node name="label" type="Label" parent="page_4"]
+margin_left = 276.0
+margin_top = 348.0
+margin_right = 789.0
+margin_bottom = 362.0
+text = "This is a beacon. Robots flock to beacons.
+
+Create beacons by clicking on the sky.
+
+Remove beacons by clicking on them."
+
+[node name="page_3" type="CanvasLayer" parent="."]
+editor/display_folded = true
+layer = 19
+script = ExtResource( 2 )
+
+[node name="panel_container" type="PanelContainer" parent="page_3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="sprite" type="Sprite" parent="page_3"]
+position = Vector2( 966, 336 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 4 )
+
+[node name="sprite2" type="Sprite" parent="page_3"]
+position = Vector2( 702, 420 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 25 )
+
+[node name="next" type="Button" parent="page_3"]
+margin_left = 1020.0
+margin_top = 624.0
+margin_right = 1320.0
+margin_bottom = 722.0
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 12 )
+custom_styles/focus = ExtResource( 13 )
+custom_styles/normal = ExtResource( 14 )
+text = "Next"
+
+[node name="label" type="Label" parent="page_3"]
+margin_left = 630.0
+margin_top = 492.0
+margin_right = 975.0
+margin_bottom = 506.0
+text = "This is a robot. Create robots by clicking on your base."
+
+[node name="page_2" type="CanvasLayer" parent="."]
+editor/display_folded = true
+layer = 19
+script = ExtResource( 2 )
+
+[node name="panel_container" type="PanelContainer" parent="page_2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="sprite" type="Sprite" parent="page_2"]
+position = Vector2( 504, 156 )
+texture = ExtResource( 26 )
+
+[node name="next" type="Button" parent="page_2"]
+margin_left = 1020.0
+margin_top = 624.0
+margin_right = 1320.0
+margin_bottom = 722.0
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 12 )
+custom_styles/focus = ExtResource( 13 )
+custom_styles/normal = ExtResource( 14 )
+text = "Next"
+
+[node name="label" type="Label" parent="page_2"]
+margin_left = 960.0
+margin_top = 222.0
+margin_right = 1231.0
+margin_bottom = 236.0
+text = "This is your electricity meter. Fill it to win."
+
+[node name="page_1" type="CanvasLayer" parent="."]
+editor/display_folded = true
+layer = 19
+script = ExtResource( 2 )
+
+[node name="panel_container" type="PanelContainer" parent="page_1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="sprite" type="Sprite" parent="page_1"]
+position = Vector2( 588, 312 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 4 )
+
+[node name="next" type="Button" parent="page_1"]
+margin_left = 1020.0
+margin_top = 624.0
+margin_right = 1320.0
+margin_bottom = 722.0
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 12 )
+custom_styles/focus = ExtResource( 13 )
+custom_styles/normal = ExtResource( 14 )
+text = "Next"
+
+[node name="label" type="Label" parent="page_1"]
+margin_left = 252.0
+margin_top = 402.0
+margin_right = 430.0
+margin_bottom = 416.0
+text = "This is your base. Protect it!"
+
+[node name="page_10" type="CanvasLayer" parent="."]
+layer = 19
+script = ExtResource( 2 )
+
+[node name="panel_container" type="PanelContainer" parent="page_10"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="sprite" type="Sprite" parent="page_10"]
+position = Vector2( 1320, 366 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 27 )
+
+[node name="sprite2" type="Sprite" parent="page_10"]
+position = Vector2( 60, 366 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 27 )
+flip_h = true
+
+[node name="next" type="Button" parent="page_10"]
+margin_left = 1020.0
+margin_top = 624.0
+margin_right = 1320.0
+margin_bottom = 722.0
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 12 )
+custom_styles/focus = ExtResource( 13 )
+custom_styles/normal = ExtResource( 14 )
+text = "Next"
+
+[node name="label" type="Label" parent="page_10"]
+margin_left = 528.0
+margin_top = 258.0
+margin_right = 865.0
+margin_bottom = 272.0
+text = "The world is big. Use left/right or A/D to look around."
+
+[node name="label2" type="Label" parent="page_10"]
+margin_left = 222.0
+margin_top = 708.0
+margin_right = 483.0
+margin_bottom = 722.0
+text = "(Not now. Do it once the tutorial is over.)"
+

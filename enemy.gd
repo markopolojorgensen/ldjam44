@@ -6,6 +6,7 @@ var destination
 const max_idle_time = 1
 
 var rage_target
+var dead = false
 
 func _ready():
 	$animated_sprite.play()
@@ -22,6 +23,9 @@ func _ready():
 		idle_wander()
 
 func _process(delta):
+	if dead:
+		return
+	
 	if rage_target and not rage_target.is_manned():
 		# stop raging
 		rage_target = null
@@ -50,8 +54,13 @@ func _on_animated_sprite_frame_changed():
 			position.x += 4*6
 
 func _on_enemy_body_entered(body):
-	if body.has_method("hit_by_enemy"):
+	if body.has_method("hit_by_enemy") and not dead:
+		dead = true
+		hide()
 		body.hit_by_enemy()
+		$splat.play()
+		
+		yield($splat, "finished")
 		queue_free()
 
 func is_enemy():
