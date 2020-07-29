@@ -1,5 +1,5 @@
 
-## Radioactive Worm Swarm
+## Radioactive Worm Storm
 
 This is a submission for Ludum Dare 44. I made it in about 48 hours.
 
